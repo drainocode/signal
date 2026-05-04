@@ -8,7 +8,8 @@
     "start": "node src/index.js",
     "dev": "node --watch src/index.js",
     "test:discovery": "node src/discovery/test.js",
-    "test:qualification": "node src/qualification/test.js"
+    "test:qualification": "node src/qualification/test.js",
+    "test:enrichment": "node src/enrichment/test.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.92.0",
