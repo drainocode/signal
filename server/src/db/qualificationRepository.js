@@ -39,6 +39,8 @@ const saveQualificationResult = async (result) => {
     location_count,
     is_franchise,
     is_pe_backed,
+    owner_operated_likelihood,  
+    estimated_employee_range,
   } = result
 
   // Upsert qualification result
@@ -48,6 +50,8 @@ const saveQualificationResult = async (result) => {
       business_id,
       is_qualified,
       disqualification_reason:  disqualification_reason || null,
+      owner_operated_likelihood: owner_operated_likelihood || null,
+      estimated_employee_range:  estimated_employee_range  || null,
       qualification_score,
       review_volume_signal,
       website_quality_signal,
