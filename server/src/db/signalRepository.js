@@ -109,23 +109,27 @@ export const getLastSignal = async (businessId, signalType) => {
 export const getBusinessesForMonitoring = async (limit = 100) => {
   const { data, error } = await supabase
     .from('businesses')
-    .select(`
-      *,
-      enrichment_data (
-        tech_stack,
-        has_google_ads,
-        has_meta_ads,
-        review_count,
-        review_response_rate,
-        social_links
-      )
-    `)
+    .select('*')
     .in('pipeline_status', ['enriched', 'scored'])
     .order('created_at', { ascending: true })
     .limit(limit)
 
   if (error) throw new Error(`[SignalRepo] Failed to fetch businesses: ${error.message}`)
-  return data || []
+
+  // For each business, fetch their enrichment data separately
+  const businessesWithEnrichment = await Promise.all(
+    (data || []).map(async (business) => {
+      const { data: enrichment } = await supabase
+        .from('enrichment_data')
+        .select('*')
+        .eq('business_id', business.id)
+        .maybeSingle()
+
+      return { ...business, enrichment_data: enrichment || null }
+    })
+  )
+
+  return businessesWithEnrichment
 }
 
 // ── Get signal feed for dashboard ────────────────────────────────────────

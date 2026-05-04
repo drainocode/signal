@@ -32,7 +32,7 @@ export const runSignalMonitoring = async ({ limit = 50, monitors = 'all' } = {})
 
   for (const business of businesses) {
     try {
-      const enrichmentData = business.enrichment_data?.[0] || null
+      const enrichmentData = business.enrichment_data || null
       const businessSignals = []
 
       console.log(`\n[SignalMonitor] Checking: "${business.name}"`)
