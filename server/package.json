@@ -10,7 +10,8 @@
     "test:discovery": "node src/discovery/test.js",
     "test:qualification": "node src/qualification/test.js",
     "test:enrichment": "node src/enrichment/test.js",
-    "test:signals": "node src/signals/test.js"
+    "test:signals": "node src/signals/test.js",
+    "test:scoring": "node src/scoring/test.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.92.0",
