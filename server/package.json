@@ -1,0 +1,23 @@
+{
+  "name": "signal-engine",
+  "version": "1.0.0",
+  "description": "Signal Intelligence Engine — PE acquisition target discovery and scoring",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test:discovery": "node src/discovery/test.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "botasaurus-desktop-api": "*",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
