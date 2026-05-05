@@ -16,7 +16,7 @@ console.log('──────────────────────�
 try {
   // Load qualified businesses
   console.log('Loading qualified businesses...')
-  const businesses = await getBusinessesForEnrichment(3) // Test with 3 only
+  const businesses = await getBusinessesForEnrichment(20) // Test with 20 only
   console.log(`Loaded ${businesses.length} businesses for enrichment\n`)
 
   if (businesses.length === 0) {

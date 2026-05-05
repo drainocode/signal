@@ -18,7 +18,7 @@ try {
   console.log('Running signal monitors...')
   console.log('(This checks hiring, ads, reviews, and exec changes)\n')
 
-  const stats = await runSignalMonitoring({ limit: 3, monitors: 'all' })
+  const stats = await runSignalMonitoring({ limit: 20, monitors: 'all' })
 
   console.log('\n─────────────────────────────────────────')
   console.log('Signal Monitoring Results:')
